@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AFewOfMyFavoriteThings</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/assets/afew_favorite_things_logo.png" width="30" height="30">
+          <h1 class="title is-4 mx-2">A Few of My Favorite Things</h1>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">Home</a>
+          <a class="navbar-item">My Lists</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <% if logged_in? %>
+              <a href="#">
+                <%= current_user.name %>
+              </a>
+              <%= button_to "Log Out", logout_path, method: :delete %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section is-large ">
+      <div class="container">
+        <%= yield %>  
+      </div>
+    </section>
+  </body>
+</html>

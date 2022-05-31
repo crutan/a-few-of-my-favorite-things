@@ -1,0 +1,29 @@
+<div>
+  <h1 class="text-lg font-medium">Create Account</h1>
+  
+  <%= form_with model: @user do |form| %>
+    <div class="mb-6">
+      <%= form.label :name, "Name" %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :email, "Email Address" %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :password, "Password" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :confirm_password, "Confirm Password" %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.submit "Create Account" %>
+    </div>
+  <% end %>
+</div>
